@@ -5,7 +5,9 @@ body {
   background-color: #ffffff;
   overflow-x: hidden;
 }
-
+img{
+  width: 100%;
+}
 .layout_padding {
   padding: 90px 0;
 }

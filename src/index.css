@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Poppins:wght@300;400;600;700&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  body {
+    @apply bg-brand-dark text-gray-300 font-body transition-colors duration-300;
+  }
+
+  /* Light mode styles */
+  .light body {
+    @apply bg-light-bg text-light-text;
+  }
+}
+
+@layer components {
+  /* Dark mode component styles */
+  .dark .glowing-border {
+    @apply border border-brand-cyan/30 shadow-lg shadow-brand-cyan/10 transition-all duration-300;
+  }
+  .dark .glowing-border:hover {
+    @apply border-brand-cyan/80 shadow-xl shadow-brand-cyan/20;
+  }
+  .dark .text-glow {
+    text-shadow: 0 0 8px theme('colors.brand-cyan');
+  }
+  .dark .card-bg {
+    @apply bg-brand-navy;
+  }
+  .dark .page-bg {
+     @apply bg-brand-navy/50;
+  }
+  .dark .form-input {
+    @apply bg-brand-navy/70 border-gray-600 text-gray-300 placeholder:text-gray-500;
+  }
+  .dark .form-input:focus {
+    @apply ring-brand-cyan border-brand-cyan;
+  }
+  .dark .header-bg {
+    @apply bg-brand-navy/80;
+  }
+
+  /* Light mode component styles */
+  .light .glowing-border {
+    @apply border-light-border shadow-md transition-all duration-300;
+  }
+  .light .glowing-border:hover {
+    @apply border-brand-blue shadow-lg;
+  }
+  .light .text-glow {
+    @apply text-brand-blue;
+  }
+  .light .card-bg {
+    @apply bg-light-card;
+  }
+  .light .page-bg {
+    @apply bg-light-card/50;
+  }
+  .light .form-input {
+    @apply bg-light-bg border-light-border text-light-text placeholder:text-gray-500;
+  }
+  .light .form-input:focus {
+    @apply ring-brand-blue border-brand-blue;
+  }
+  .light .header-bg {
+    @apply bg-light-card/80;
+  }
+}

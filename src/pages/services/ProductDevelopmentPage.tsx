@@ -1,0 +1,86 @@
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { motion } from 'framer-motion';
+import PageHero from '../../components/ui/PageHero';
+import { FAQ_DATA } from '../../constants';
+import FAQ from '../../components/shared/FAQ';
+import Button from '../../components/ui/Button';
+import { Code, BrainCircuit, Bot, Users } from 'lucide-react';
+
+const ProductDevelopmentPage: React.FC = () => {
+  const pageTitle = "Cybersecurity Product Development & Research";
+  const pageDescription = "Partner with us to build custom cybersecurity tools, leverage AI-driven threat detection, and conduct cutting-edge research into emerging threats.";
+
+  const sections = [
+    {
+      icon: Code,
+      title: 'Custom Tool & Platform Development',
+      description: 'We design and build bespoke security solutions from the ground up. Whether you need a specialized automation script, a custom security dashboard, or a full-fledged security platform, our developers can create tools that integrate seamlessly into your workflow and solve your unique challenges.'
+    },
+    {
+      icon: BrainCircuit,
+      title: 'AI-Driven Threat Detection Systems',
+      description: 'Our R&D lab is at the forefront of applying machine learning to cybersecurity. We develop predictive models that can identify novel threats, detect anomalous behavior in real-time, and automate the triage of security alerts with high accuracy, reducing noise for your security team.'
+    },
+    {
+      icon: Bot,
+      title: 'Zero-Day & Vulnerability Research',
+      description: 'We have a dedicated team that proactively researches new vulnerabilities in widely used software and hardware. Our goal is to discover and responsibly disclose zero-day threats, contributing to the security of the broader digital ecosystem while providing our clients with advanced warning.'
+    },
+    {
+      icon: Users,
+      title: 'Collaboration & Partnerships',
+      description: 'We believe in the power of collaboration. We partner with academic institutions, open-source projects, and other security firms to share knowledge and advance the state of the art in cybersecurity. We are always open to new research partnerships.'
+    }
+  ];
+
+  return (
+    <div>
+      <Helmet>
+        <title>{pageTitle} | Roblocksec</title>
+        <meta name="description" content={pageDescription} />
+      </Helmet>
+      <PageHero title="Product Development & Research" subtitle="Building the Future of Cybersecurity, Today." />
+      
+      <div className="py-20 container mx-auto px-6">
+        <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+                <h2 className="text-3xl font-display font-bold text-white light:text-light-text mb-4">Innovation in Defense</h2>
+                <p className="text-gray-300 light:text-gray-600 mb-4 text-lg">
+                    At Roblocksec, we don't just use security tools—we build them. Our research and development arm is dedicated to creating the next generation of cybersecurity solutions. We turn groundbreaking ideas into practical, powerful tools that give our clients a decisive advantage over adversaries.
+                </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
+                <img src="https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/0d1117/8957e5?text=R%26D+Lab" alt="Roblocksec Research Lab" className="rounded-lg shadow-2xl shadow-brand-purple/20" />
+            </motion.div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+            {sections.map((section, index) => (
+                <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="card-bg p-8 rounded-lg glowing-border flex items-start gap-6"
+                >
+                    <section.icon className="w-12 h-12 text-brand-cyan light:text-brand-blue flex-shrink-0 mt-1" />
+                    <div>
+                        <h3 className="text-xl font-bold font-display text-white light:text-light-text mb-2">{section.title}</h3>
+                        <p className="text-gray-400 light:text-gray-600">{section.description}</p>
+                    </div>
+                </motion.div>
+            ))}
+        </div>
+        <div className="text-center mt-16">
+            <Button href="/contact" variant="primary">Partner With Us for Research</Button>
+        </div>
+      </div>
+      
+      <FAQ items={FAQ_DATA['product-development']} />
+    </div>
+  );
+};
+
+export default ProductDevelopmentPage;
